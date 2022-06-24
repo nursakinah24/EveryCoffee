@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EveryCoffee">
         <activity
+            android:name=".AdminHome"
+            android:exported="false" />
+        <activity
             android:name=".Register"
             android:exported="false" />
         <activity
