@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "705720870008",
+    "project_id": "everycoffee-98b85",
+    "storage_bucket": "everycoffee-98b85.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:705720870008:android:7b313080d78f62c454b98d",
+        "android_client_info": {
+          "package_name": "com.example.everycoffee"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "705720870008-1qtkfo578i3tbca29a59cec0a34802r3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCb-QH0h8QoOGoiM7sHJi2pVqJqkOOHnOQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "705720870008-1qtkfo578i3tbca29a59cec0a34802r3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
