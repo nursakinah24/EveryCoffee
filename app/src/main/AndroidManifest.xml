@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EveryCoffee">
         <activity
+            android:name=".DetailProduct"
+            android:exported="false"
+            android:label="@string/title_activity_detail_product"
+            android:theme="@style/Theme.EveryCoffee.NoActionBar" />
+        <activity
             android:name=".UserHome"
             android:exported="false" />
         <activity
