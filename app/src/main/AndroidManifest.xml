@@ -18,7 +18,7 @@
             android:name=".UserHome"
             android:exported="false" />
         <activity
-            android:name=".AdminAddProduct"
+            android:name=".AdminManageProduct"
             android:exported="false" />
         <activity
             android:name=".coffee_item_layout"

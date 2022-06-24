@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import com.example.everycoffee.ViewHolder.ProductViewHolder;
 import com.example.everycoffee.model.Product;
@@ -41,7 +40,7 @@ public class AdminMenu extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(AdminMenu.this, AdminAddProduct.class);
+                Intent intent = new Intent(AdminMenu.this, AdminManageProduct.class);
                 startActivity(intent);
             }
         });

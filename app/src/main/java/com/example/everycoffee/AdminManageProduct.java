@@ -30,7 +30,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 
-public class AdminAddProduct extends AppCompatActivity {
+public class AdminManageProduct extends AppCompatActivity {
 
     private String Product, Description, Price, saveDate, saveTime, productRandomKey, downloadImageUrl;
     private Button btnSubmit;
@@ -46,7 +46,7 @@ public class AdminAddProduct extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_add_product);
+        setContentView(R.layout.activity_admin_manage_product);
 
         storageRef = FirebaseStorage.getInstance().getReference().child("Product Images");
         databaseRef = FirebaseDatabase.getInstance().getReference().child("Product");
@@ -124,13 +124,13 @@ public class AdminAddProduct extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
                 String message = e.toString();
-                Toast.makeText(AdminAddProduct.this, "ERROR:" + message, Toast.LENGTH_SHORT).show();
+                Toast.makeText(AdminManageProduct.this, "ERROR:" + message, Toast.LENGTH_SHORT).show();
                 loadingBar.dismiss();
             }
         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(com.google.firebase.storage.UploadTask.TaskSnapshot taskSnapshot) {
-                Toast.makeText(AdminAddProduct.this, "Image Uploaded Succesfully", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AdminManageProduct.this, "Image Uploaded Succesfully", Toast.LENGTH_SHORT).show();
                 Task<Uri> urlTask = UploadTask.continueWithTask(new Continuation<com.google.firebase.storage.UploadTask.TaskSnapshot, Task<Uri>>() {
                     @Override
                     public Task<Uri> then(@NonNull Task<com.google.firebase.storage.UploadTask.TaskSnapshot> task) throws Exception {
@@ -146,7 +146,7 @@ public class AdminAddProduct extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Uri> task) {
                         if(task.isSuccessful()){
                             downloadImageUrl = task.getResult().toString();
-                            Toast.makeText(AdminAddProduct.this, "got the product Image url succcesfully...", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AdminManageProduct.this, "got the product Image url succcesfully...", Toast.LENGTH_SHORT).show();
                             saveProduct();
                         }
                     }
@@ -170,15 +170,15 @@ public class AdminAddProduct extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
-                            Intent intent = new Intent(AdminAddProduct.this, AdminMenu.class);
+                            Intent intent = new Intent(AdminManageProduct.this, AdminMenu.class);
                             startActivity(intent);
 
                             loadingBar.dismiss();
-                            Toast.makeText(AdminAddProduct.this, "Product is added succesfully", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AdminManageProduct.this, "Product is added succesfully", Toast.LENGTH_SHORT).show();
                         }else{
                             loadingBar.dismiss();
                             String message = task.getException().toString();
-                            Toast.makeText(AdminAddProduct.this, "Error " + message, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AdminManageProduct.this, "Error " + message, Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
