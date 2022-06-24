@@ -10,10 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EveryCoffee">
         <activity
+            android:name=".AdminAddProduct"
+            android:exported="false" />
+        <activity
             android:name=".coffee_item_layout"
             android:exported="false" />
         <activity
-            android:name=".admin_menu"
+            android:name=".AdminMenu"
             android:exported="false" />
         <activity
             android:name=".AdminHome"
