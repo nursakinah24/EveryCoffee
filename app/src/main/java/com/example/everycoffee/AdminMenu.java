@@ -16,6 +16,7 @@ import com.example.everycoffee.ViewHolder.ProductViewHolder;
 import com.example.everycoffee.model.Product;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -23,7 +24,7 @@ import com.squareup.picasso.Picasso;
 public class AdminMenu extends AppCompatActivity {
     private RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
-    private Button fab;
+    private FloatingActionButton fab;
     private DatabaseReference ProductRef;
 
     @Override
