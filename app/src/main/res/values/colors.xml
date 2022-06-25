@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="chocolate">#2D1B12</color>
     <color name="background">#EACAAE</color>
+    <color name="lightchocolate">#CEAB93</color>
+    <color name="light2">#FEF7DC</color>
 </resources>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/order_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -11,7 +11,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:background="@color/background"
+        android:background="@color/lightchocolate"
         android:padding="10dp">
 
         <TextView
@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:text="username"
-            android:textColor="@android:color/white"
+            android:textColor="@color/light2"
             android:textSize="14sp"
             android:textStyle="bold" /><![CDATA[
 
@@ -45,7 +45,7 @@
             android:layout_alignStart="@+id/order_user_name"
             android:layout_marginStart="6dp"
             android:layout_marginTop="22dp"
-            android:background="@color/background"
+            android:background="@color/lightchocolate"
             android:scrollbars="vertical"></androidx.recyclerview.widget.RecyclerView>
 
         <Button
@@ -62,10 +62,9 @@
             android:layout_marginEnd="16dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="-74dp"
-            android:background="@android:color/white"
             android:backgroundTint="@color/chocolate"
             android:text="SHOW DETAIL"
-            android:textColor="@color/background"
+            android:textColor="@color/light2"
             android:textSize="18sp" />
 
     </RelativeLayout>
