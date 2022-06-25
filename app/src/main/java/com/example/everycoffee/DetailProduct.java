@@ -24,8 +24,8 @@ import java.util.HashMap;
 
 public class DetailProduct extends AppCompatActivity {
     private Button addToCartBtn;
-    private ImageView product_Image, plusQty, minQty;
-    private EditText edNumber;
+    private ImageView product_Image;
+    private ElegantNumberButton Quantity;
     private TextView productPriceDetail, productDescriptionDetail, productNameDetail;
     private String productID = "", state = "Normal";
     @Override
@@ -34,13 +34,10 @@ public class DetailProduct extends AppCompatActivity {
         setContentView(R.layout.content_detail_product);
 
         productID = getIntent().getStringExtra("pid");
-        plusQty = findViewById(R.id.plus_button);
-        minQty = findViewById(R.id.minus_button);
         product_Image = findViewById(R.id.product_detail_image);
         productPriceDetail= findViewById(R.id.product_detail_price);
         productNameDetail = findViewById(R.id.product_detail_name);
         productDescriptionDetail = findViewById(R.id.product_detail_desc);
-        edNumber = findViewById(R.id.editTextNumber);
         addToCartBtn = findViewById(R.id.add_cart_button);
         
         getProductDetail(productID);
@@ -66,7 +63,7 @@ public class DetailProduct extends AppCompatActivity {
         cartMap.put("price", productPriceDetail.getText().toString());
         cartMap.put("date", saveCurrentDate);
         cartMap.put("time", saveCurrentTime);
-        cartMap.put("discount", "");
+        cartMap.put("quantity", Quantity.getNumber());
         cartListRef.child("User View").child("phone")
                 .child("Product").child(productID)
                 .updateChildren(cartMap)
