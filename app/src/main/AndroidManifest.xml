@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EveryCoffee">
         <activity
+            android:name=".AdminCheckOrder"
+            android:exported="false" />
+        <activity
             android:name=".Cart"
             android:exported="false" />
         <activity
