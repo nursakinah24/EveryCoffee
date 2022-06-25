@@ -1,12 +1,12 @@
 package com.example.everycoffee.model;
 
-public class Cart {
+public class CartModel {
     private String pid, productName, price, quantity;
 
-    public Cart() {
+    public CartModel() {
     }
 
-    public Cart(String pid, String productName, String price, String quantity) {
+    public CartModel(String pid, String productName, String price, String quantity) {
         this.pid = pid;
         this.productName = productName;
         this.price = price;
