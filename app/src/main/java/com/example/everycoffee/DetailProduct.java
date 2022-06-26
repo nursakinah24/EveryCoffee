@@ -33,6 +33,7 @@ public class DetailProduct extends AppCompatActivity {
     private ElegantNumberButton Quantity;
     private TextView productPriceDetail, productDescriptionDetail, productNameDetail, productStockDetail;
     private String productID = "", state = "Normal";
+    private String stock;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,6 +72,11 @@ public class DetailProduct extends AppCompatActivity {
         cartMap.put("date", saveCurrentDate);
         cartMap.put("time", saveCurrentTime);
         cartMap.put("quantity", Quantity.getNumber());
+
+        final String qty1 = Quantity.getNumber();
+        int qty2 = Integer.parseInt(stock) -  Integer.parseInt(qty1);
+        final String qty3 = String.valueOf(qty2);
+
         cartListRef.child("User View").child("phone")
                 .child("Product").child(productID)
                 .updateChildren(cartMap)
@@ -84,10 +90,20 @@ public class DetailProduct extends AppCompatActivity {
                                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
-                                            if(task.isSuccessful()){
-                                                Toast.makeText(DetailProduct.this, "Added to cart list", Toast.LENGTH_SHORT).show();
-                                                Intent intent = new Intent(DetailProduct.this, UserHome.class);
-                                                startActivity(intent);
+                                            if(task.isSuccessful())
+                                            {
+                                                DatabaseReference Ref= FirebaseDatabase.getInstance().getReference().child("Product").child(productID);
+                                                HashMap<String, Object> Map = new HashMap<>();
+                                                Map.put("stock", qty3);
+                                                Ref.updateChildren(Map).addOnCompleteListener(new OnCompleteListener<Void>()
+                                                {
+                                                    @Override
+                                                    public void onComplete(@NonNull Task<Void> task) {
+                                                        Toast.makeText(DetailProduct.this, "Added to cart list", Toast.LENGTH_SHORT).show();
+                                                        Intent intent = new Intent(DetailProduct.this, UserHome.class);
+                                                        startActivity(intent);
+                                                    }
+                                                });
                                             }
                                         }
                                     });
@@ -109,6 +125,7 @@ public class DetailProduct extends AppCompatActivity {
                     productStockDetail.setText("Stock: " + product.getStock());
                     Quantity.setRange(0,Integer.parseInt(product.getStock()));
                     Picasso.get().load(product.getImage()).into(product_Image);
+                    stock = product.getStock();
                 }
             }
 
