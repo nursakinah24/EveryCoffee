@@ -9,8 +9,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="383dp"
-        android:layout_height="497dp"
+        android:layout_width="347dp"
+        android:layout_height="474dp"
         android:background="@color/lightchocolate"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -18,8 +18,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.05"
-        >
+        app:layout_constraintVertical_bias="0.2">
 
 
         <TextView
@@ -36,7 +35,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.05" />
-
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -56,10 +54,10 @@
 
                 <TextView
                     android:id="@+id/Rp"
-                    android:layout_width="45dp"
+                    android:layout_width="60dp"
                     android:layout_height="wrap_content"
                     android:text="Rp."
-                    android:textAlignment="center"
+                    android:textAlignment="textEnd"
                     android:textColor="@color/chocolate"
                     android:textSize="24sp" />
 
@@ -68,7 +66,6 @@
                     android:layout_width="119dp"
                     android:layout_height="wrap_content"
                     android:text="Price"
-                    android:textAlignment="center"
                     android:textColor="@color/chocolate"
                     android:textSize="24sp" />
             </LinearLayout>
@@ -85,7 +82,7 @@
             android:id="@+id/textView11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingStart="10dp"
+            android:paddingStart="15dp"
             android:text="Description"
             android:textColor="@color/chocolate"
             android:textSize="24sp"
@@ -95,7 +92,7 @@
             android:id="@+id/product_detail_desc"
             android:layout_width="match_parent"
             android:layout_height="68dp"
-            android:paddingStart="10dp"
+            android:paddingStart="15dp"
             android:text="Description"
             android:textColor="@color/chocolate"
             android:textSize="20sp" />
