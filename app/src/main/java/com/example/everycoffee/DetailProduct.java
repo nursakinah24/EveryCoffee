@@ -107,6 +107,7 @@ public class DetailProduct extends AppCompatActivity {
                     productPriceDetail.setText(product.getPrice());
                     productDescriptionDetail.setText(product.getDescription());
                     productStockDetail.setText("Stock: " + product.getStock());
+                    Quantity.setRange(0,Integer.parseInt(product.getStock()));
                     Picasso.get().load(product.getImage()).into(product_Image);
                 }
             }
