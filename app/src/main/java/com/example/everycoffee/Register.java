@@ -99,7 +99,7 @@ public class Register extends AppCompatActivity
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot)
             {
-                if(!(dataSnapshot.child("User").child("Members").child(m_username).exists()))
+                if(!(dataSnapshot.child("Users").child("Members").child(m_username).exists()))
                 {
                     HashMap<String, Object> UserDataMap = new HashMap<>();
 
@@ -110,7 +110,7 @@ public class Register extends AppCompatActivity
                     UserDataMap.put("m_pass",m_pass);
 
 
-                    db.child("User").child("Student").child(m_username).updateChildren(UserDataMap).addOnCompleteListener(new OnCompleteListener<Void>()
+                    db.child("Users").child("Members").child(m_username).updateChildren(UserDataMap).addOnCompleteListener(new OnCompleteListener<Void>()
                     {
                         @Override
                         public void onComplete(@NonNull Task<Void> task)
