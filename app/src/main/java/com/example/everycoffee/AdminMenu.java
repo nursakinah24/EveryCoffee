@@ -61,15 +61,6 @@ public class AdminMenu extends AppCompatActivity {
                         holder.txtProductName.setText(model.getProductName());
                         holder.txtproductPrice.setText("Price : Rp. " + model.getPrice());
                         Picasso.get().load(model.getImage()).into(holder.imageView);
-
-                        holder.itemView.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                Intent intent = new Intent(AdminMenu.this, DetailProduct.class);
-                                intent.putExtra("pid", model.getPid());
-                                startActivity(intent);
-                            }
-                        });
                     }
 
                     @NonNull
