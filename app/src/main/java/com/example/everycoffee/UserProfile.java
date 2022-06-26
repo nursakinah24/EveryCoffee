@@ -47,7 +47,7 @@ public class UserProfile extends AppCompatActivity {
     }
 
     private void getUserData(String userID) {
-        DatabaseReference productsRef = FirebaseDatabase.getInstance().getReference().child("Users").child("Members");
+        DatabaseReference productsRef = FirebaseDatabase.getInstance().getReference().child("Users");
         productsRef.child(userID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

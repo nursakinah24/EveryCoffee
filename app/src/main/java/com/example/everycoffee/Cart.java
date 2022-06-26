@@ -106,7 +106,6 @@ public class Cart extends AppCompatActivity {
                                 // Jika indeks == 1 atau Remove maka hapus dengan pid tertentu
                                 if (i == 1) {
                                     cartListRef
-
                                             .child(model.getPid())
                                             .removeValue()
                                             .addOnCompleteListener(new OnCompleteListener<Void>() {
