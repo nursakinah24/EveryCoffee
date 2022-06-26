@@ -7,6 +7,7 @@
         <entry key="..\:/Users/andri/Documents/GitHub/EveryCoffee/app/src/main/res/layout/activity_admin_add_product.xml" value="0.264" />
         <entry key="..\:/Users/andri/Documents/GitHub/EveryCoffee/app/src/main/res/layout/activity_admin_check_order.xml" value="0.25" />
         <entry key="..\:/Users/andri/Documents/GitHub/EveryCoffee/app/src/main/res/layout/activity_admin_home.xml" value="0.25" />
+        <entry key="..\:/Users/andri/Documents/GitHub/EveryCoffee/app/src/main/res/layout/activity_admin_manage_product.xml" value="0.264" />
         <entry key="..\:/Users/andri/Documents/GitHub/EveryCoffee/app/src/main/res/layout/activity_admin_menu.xml" value="0.264" />
         <entry key="..\:/Users/andri/Documents/GitHub/EveryCoffee/app/src/main/res/layout/activity_cart.xml" value="0.25" />
         <entry key="..\:/Users/andri/Documents/GitHub/EveryCoffee/app/src/main/res/layout/activity_coffee_item_layout.xml" value="0.264" />
@@ -15,7 +16,8 @@
         <entry key="..\:/Users/andri/Documents/GitHub/EveryCoffee/app/src/main/res/layout/activity_order_confirmation.xml" value="0.25" />
         <entry key="..\:/Users/andri/Documents/GitHub/EveryCoffee/app/src/main/res/layout/activity_register.xml" value="0.4" />
         <entry key="..\:/Users/andri/Documents/GitHub/EveryCoffee/app/src/main/res/layout/activity_search.xml" value="0.25" />
-        <entry key="..\:/Users/andri/Documents/GitHub/EveryCoffee/app/src/main/res/layout/activity_user_home.xml" value="0.23786407766990292" />
+        <entry key="..\:/Users/andri/Documents/GitHub/EveryCoffee/app/src/main/res/layout/activity_user_home.xml" value="0.536" />
+        <entry key="..\:/Users/andri/Documents/GitHub/EveryCoffee/app/src/main/res/layout/activity_user_order_history.xml" value="0.12083333333333333" />
         <entry key="..\:/Users/andri/Documents/GitHub/EveryCoffee/app/src/main/res/layout/activity_user_profile.xml" value="0.4" />
         <entry key="..\:/Users/andri/Documents/GitHub/EveryCoffee/app/src/main/res/layout/cart_item.xml" value="0.25" />
         <entry key="..\:/Users/andri/Documents/GitHub/EveryCoffee/app/src/main/res/layout/content_detail_product.xml" value="0.264" />
