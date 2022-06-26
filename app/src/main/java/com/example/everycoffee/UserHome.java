@@ -10,17 +10,23 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.example.everycoffee.ViewHolder.ProductViewHolder;
 import com.example.everycoffee.model.Product;
+import com.example.everycoffee.model.Users;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 public class UserHome extends AppCompatActivity {
+    private ImageView Profile, Order, Search, Cart;
     private RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     private DatabaseReference ProductRef;
@@ -34,6 +40,43 @@ public class UserHome extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycler_menu);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
+        Profile = findViewById(R.id.userProfile);
+        Order = findViewById(R.id.userOrder);
+        Search = findViewById(R.id.userSearch);
+        Cart = findViewById(R.id.userCart);
+
+
+        Profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(UserHome.this, UserProfile.class);
+                startActivity(intent);
+            }
+        });
+
+        Order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(UserHome.this, UserOrderHistory.class);
+                startActivity(intent);
+            }
+        });
+
+        Search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(UserHome.this, Search.class);
+                startActivity(intent);
+            }
+        });
+
+        Cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(UserHome.this, Cart.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

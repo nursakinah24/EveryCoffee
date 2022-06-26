@@ -44,7 +44,7 @@ public class AdminHome extends AppCompatActivity {
         ivTrx.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(AdminHome.this, AdminMenu.class);
+                Intent intent = new Intent(AdminHome.this, AdminCheckOrder.class);
                 startActivity(intent);
             }
         });
@@ -52,7 +52,7 @@ public class AdminHome extends AppCompatActivity {
         tvTrx.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(AdminHome.this, AdminMenu.class);
+                Intent intent = new Intent(AdminHome.this, AdminCheckOrder.class);
                 startActivity(intent);
             }
         });

@@ -106,7 +106,7 @@ public class DetailProduct extends AppCompatActivity {
                     productNameDetail.setText(product.getProductName());
                     productPriceDetail.setText(product.getPrice());
                     productDescriptionDetail.setText(product.getDescription());
-                    productStockDetail.setText(product.getStock());
+                    productStockDetail.setText("Stock: " + product.getStock());
                     Picasso.get().load(product.getImage()).into(product_Image);
                 }
             }
