@@ -12,39 +12,51 @@
         tools:replace="android:icon">
         <activity
             android:name=".UserOrderHistory"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".UserHome"/>
         <activity
             android:name=".OrderConfirmation"
             android:exported="false" />
         <activity
             android:name=".AdminCheckOrder"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".AdminMenu"/>
         <activity
             android:name=".Cart"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".UserHome"/>
         <activity
             android:name=".Search"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".UserHome"/>
         <activity
             android:name=".DetailProduct"
             android:exported="false"
             android:label="@string/title_activity_detail_product"
-            android:theme="@style/Theme.EveryCoffee.NoActionBar" />
+            android:theme="@style/Theme.EveryCoffee.NoActionBar"
+            android:parentActivityName=".UserHome"/>
         <activity
             android:name=".UserHome"
             android:exported="false" />
         <activity
             android:name=".AdminManageProduct"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".AdminMenu"/>
         <activity
             android:name=".AdminMenu"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".AdminHome"/>
         <activity
             android:name=".AdminHome"
             android:exported="false" />
         <activity
             android:name=".Register"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".UserProfile"
+            android:exported="false"
+            android:parentActivityName=".UserHome"/>
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
