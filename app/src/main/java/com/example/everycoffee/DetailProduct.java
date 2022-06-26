@@ -12,11 +12,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.everycoffee.model.Product;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
+import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -90,5 +95,23 @@ public class DetailProduct extends AppCompatActivity {
     }
 
     private void getProductDetail(String productID) {
+        DatabaseReference productsRef = FirebaseDatabase.getInstance().getReference().child("Product");
+        productsRef.child(productID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()){
+                    Product product = dataSnapshot.getValue(Product.class);
+                    productNameDetail.setText(product.getProductName());
+                    productPriceDetail.setText(product.getPrice());
+                    productDescriptionDetail.setText(product.getDescription());
+                    Picasso.get().load(product.getImage()).into(product_Image);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 }
