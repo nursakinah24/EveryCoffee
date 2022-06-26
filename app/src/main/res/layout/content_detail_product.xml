@@ -13,17 +13,17 @@
         android:layout_width="372dp"
         android:layout_height="244dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.589"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/product_detail_price"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/product_detail_price"
         app:layout_constraintTop_toBottomOf="@+id/product_detail_price"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/image" />
+        app:srcCompat="@drawable/addphoto" />
 
     <TextView
         android:id="@+id/product_detail_name"
-        android:layout_width="191dp"
-        android:layout_height="53dp"
+        android:layout_width="308dp"
+        android:layout_height="31dp"
         android:text="Product Name"
         android:textColor="@color/chocolate"
         android:textSize="26sp"
@@ -32,12 +32,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintVertical_bias="0.05"
+        android:textAlignment="center"/>
 
     <TextView
         android:id="@+id/product_detail_price"
-        android:layout_width="85dp"
-        android:layout_height="39dp"
+        android:layout_width="153dp"
+        android:layout_height="28dp"
         android:text="Price"
         android:textColor="@color/chocolate"
         android:textSize="24sp"
@@ -45,7 +46,8 @@
         app:layout_constraintEnd_toEndOf="@+id/product_detail_name"
         app:layout_constraintStart_toStartOf="@+id/product_detail_name"
         app:layout_constraintTop_toBottomOf="@+id/product_detail_name"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        android:textAlignment="center"/>
 
     <TextView
         android:id="@+id/product_detail_desc"
@@ -55,11 +57,11 @@
         android:textColor="@color/chocolate"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.081"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/product_detail_image"
-        app:layout_constraintVertical_bias="0.128" />
+        app:layout_constraintEnd_toEndOf="@+id/textView11"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        app:layout_constraintVertical_bias="0.03" />
 
     <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
         android:id="@+id/elegantBtn"
