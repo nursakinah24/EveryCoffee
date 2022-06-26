@@ -9,52 +9,52 @@
 
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/userProfile"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        app:layout_constraintBottom_toTopOf="@+id/recycler_menu"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.046"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.515"
+        app:layout_constraintVertical_bias="0.036"
         app:srcCompat="@drawable/userprofile" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/userCart"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        app:layout_constraintBottom_toTopOf="@+id/recycler_menu"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.953"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.617"
+        app:layout_constraintStart_toEndOf="@+id/userSearch"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.515"
+        app:layout_constraintVertical_bias="0.036"
         app:srcCompat="@drawable/cart" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/userSearch"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginStart="34dp"
-        app:layout_constraintBottom_toTopOf="@+id/recycler_menu"
-        app:layout_constraintEnd_toStartOf="@+id/imageView3"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView7"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.235"
+        app:layout_constraintStart_toEndOf="@+id/userOrder"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.036"
         app:srcCompat="@drawable/searchproduct" />
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/userOrder"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/recycler_menu"
+        android:layout_marginStart="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.357"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/userProfile"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.294"
+        app:layout_constraintVertical_bias="0.036"
         app:srcCompat="@drawable/orderhistory" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -66,5 +66,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+        app:layout_constraintTop_toBottomOf="@+id/userOrder" />
 </androidx.constraintlayout.widget.ConstraintLayout>
