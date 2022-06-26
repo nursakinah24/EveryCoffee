@@ -5,20 +5,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="15dp"
     app:cardElevation="5dp"
-    app:contentPadding="15dp"
+    app:contentPadding="10dp"
     app:cardBackgroundColor="@color/lightchocolate"
-    app:cardUseCompatPadding="true">
+    app:cardUseCompatPadding="true"
+    >
 
     <LinearLayout
-        android:layout_width="312dp"
-        android:layout_height="246dp"
+        android:layout_width="366dp"
+        android:layout_height="234dp"
         android:layout_margin="5dp"
         android:orientation="vertical">
 
         <ImageView
             android:id="@+id/productImage"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="180dp"
             android:layout_marginTop="2dp"
             android:gravity="center"
             android:scaleType="centerCrop" />
@@ -30,7 +31,7 @@
             android:gravity="center"
             android:text="Product Name"
             android:textColor="@color/chocolate"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView

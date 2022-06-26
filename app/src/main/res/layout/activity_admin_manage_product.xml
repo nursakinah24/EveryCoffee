@@ -16,10 +16,10 @@
         android:hint="Coffee Description"
         android:inputType="textPersonName"
         android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:textColor="@color/chocolate"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/add_name"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/add_name"
         app:layout_constraintTop_toBottomOf="@+id/textView12"
         app:layout_constraintVertical_bias="0.0" />
@@ -31,13 +31,14 @@
         android:background="@drawable/box"
         android:ems="10"
         android:hint="Coffee Price"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:textColor="@color/chocolate"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/textView14"
+        app:layout_constraintEnd_toEndOf="@+id/addDesc"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView14"
+        app:layout_constraintStart_toStartOf="@+id/addDesc"
         app:layout_constraintTop_toBottomOf="@+id/textView14"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -54,12 +55,12 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView12"
         app:layout_constraintTop_toBottomOf="@+id/textView12"
-        app:layout_constraintVertical_bias="0.157" />
+        app:layout_constraintVertical_bias="0.2" />
 
     <TextView
         android:id="@+id/textView21"
-        android:layout_width="86dp"
-        android:layout_height="31dp"
+        android:layout_width="72dp"
+        android:layout_height="27dp"
         android:text="Stock"
         android:textColor="@color/chocolate"
         android:textSize="20sp"
@@ -69,7 +70,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView14"
         app:layout_constraintTop_toBottomOf="@+id/textView14"
-        app:layout_constraintVertical_bias="0.218" />
+        app:layout_constraintVertical_bias="0.275" />
 
     <EditText
         android:id="@+id/addStock"
@@ -78,8 +79,9 @@
         android:background="@drawable/box"
         android:ems="10"
         android:hint="Coffee Stock"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:textColor="@color/chocolate"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/addPrice"
@@ -98,10 +100,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textView5"
-        app:layout_constraintHorizontal_bias="0.209"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:layout_constraintVertical_bias="0.123" />
+        app:layout_constraintVertical_bias="0.15" />
 
     <EditText
         android:id="@+id/add_name"
@@ -112,10 +114,11 @@
         android:hint="Coffee Name"
         android:inputType="textPersonName"
         android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:textColor="@color/chocolate"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textView5"
-        app:layout_constraintHorizontal_bias="0.035"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
         app:layout_constraintVertical_bias="0.0" />
@@ -130,7 +133,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/select_image"
-        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/select_image"
         app:layout_constraintTop_toBottomOf="@+id/select_image"
         app:layout_constraintVertical_bias="0.0" />
@@ -155,17 +158,15 @@
         android:textColor="@color/background"
         app:backgroundTint="@color/chocolate"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addPrice"
-        app:layout_constraintVertical_bias="0.685" />
+        app:layout_constraintEnd_toEndOf="@+id/addStock"
+        app:layout_constraintStart_toStartOf="@+id/addStock"
+        app:layout_constraintTop_toBottomOf="@+id/addStock" />
 
     <TextView
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Cofee Photo"
+        android:text="Add Coffee Photo"
         android:textColor="@color/chocolate"
         android:textSize="20sp"
         android:textStyle="bold"
