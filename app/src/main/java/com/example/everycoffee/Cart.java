@@ -106,7 +106,6 @@ public class Cart extends AppCompatActivity {
                                 // Jika indeks == 1 atau Remove maka hapus dengan pid tertentu
                                 if (i == 1) {
                                     cartListRef
-
                                             .child(model.getPid())
                                             .removeValue()
                                             .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -114,7 +113,7 @@ public class Cart extends AppCompatActivity {
                                                 public void onComplete(@NonNull Task<Void> task) {
                                                     if (task.isSuccessful()) {
                                                         Toast.makeText(Cart.this, "Item removed successfully", Toast.LENGTH_SHORT).show();
-                                                        Intent intent = new Intent(Cart.this, Cart.class);
+                                                        Intent intent = new Intent(Cart.this, UserHome.class);
                                                         startActivity(intent);
                                                     }
                                                 }

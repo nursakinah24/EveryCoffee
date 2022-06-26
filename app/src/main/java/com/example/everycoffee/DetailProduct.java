@@ -78,7 +78,7 @@ public class DetailProduct extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
-                            cartListRef.child("Admin View").child("phone)")
+                            cartListRef.child("Admin View").child("phone")
                                     .child("Product").child(productID)
                                     .updateChildren(cartMap)
                                     .addOnCompleteListener(new OnCompleteListener<Void>() {
