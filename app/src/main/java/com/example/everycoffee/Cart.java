@@ -113,7 +113,7 @@ public class Cart extends AppCompatActivity {
                                                 public void onComplete(@NonNull Task<Void> task) {
                                                     if (task.isSuccessful()) {
                                                         Toast.makeText(Cart.this, "Item removed successfully", Toast.LENGTH_SHORT).show();
-                                                        Intent intent = new Intent(Cart.this, UserHome.class);
+                                                        Intent intent = new Intent(Cart.this, Cart.class);
                                                         startActivity(intent);
                                                     }
                                                 }
