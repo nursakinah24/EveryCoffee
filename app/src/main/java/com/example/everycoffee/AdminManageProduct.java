@@ -32,10 +32,10 @@ import java.util.HashMap;
 
 public class AdminManageProduct extends AppCompatActivity {
 
-    private String Product, Description, Price, saveDate, saveTime, productRandomKey, downloadImageUrl;
+    private String Product, Description, Price, Stock, saveDate, saveTime, productRandomKey, downloadImageUrl;
     private Button btnSubmit;
     private ImageView selectImage;
-    private EditText edName, edDesc, edPrice;
+    private EditText edName, edDesc, edPrice, edStock;
     private Uri imageUri;
     private StorageReference storageRef;
     private DatabaseReference databaseRef;
@@ -57,6 +57,7 @@ public class AdminManageProduct extends AppCompatActivity {
         edName = findViewById(R.id.add_name);
         edDesc = findViewById(R.id.addDesc);
         edPrice = findViewById(R.id.addPrice);
+        edStock = findViewById(R.id.addStock);
 
         selectImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,6 +85,7 @@ public class AdminManageProduct extends AppCompatActivity {
         Product = edName.getText().toString();
         Description = edDesc.getText().toString();
         Price = edPrice.getText().toString();
+        Stock = edStock.getText().toString();
 
         if(imageUri == null){
             Toast.makeText(this, "Product Image is mandatory...", Toast.LENGTH_SHORT).show();
@@ -164,6 +166,7 @@ public class AdminManageProduct extends AppCompatActivity {
         ProductMap.put("image", downloadImageUrl);
         ProductMap.put("price",Price);
         ProductMap.put("productName", Product);
+        ProductMap.put("stock", Stock);
 
         databaseRef.child(productRandomKey).updateChildren(ProductMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
