@@ -31,7 +31,7 @@ public class DetailProduct extends AppCompatActivity {
     private Button addToCartBtn;
     private ImageView product_Image;
     private ElegantNumberButton Quantity;
-    private TextView productPriceDetail, productDescriptionDetail, productNameDetail;
+    private TextView productPriceDetail, productDescriptionDetail, productNameDetail, productStockDetail;
     private String productID = "", state = "Normal";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +39,12 @@ public class DetailProduct extends AppCompatActivity {
         setContentView(R.layout.content_detail_product);
 
         productID = getIntent().getStringExtra("pid");
+        Quantity = findViewById(R.id.elegantBtn);
         product_Image = findViewById(R.id.product_detail_image);
         productPriceDetail= findViewById(R.id.product_detail_price);
         productNameDetail = findViewById(R.id.product_detail_name);
         productDescriptionDetail = findViewById(R.id.product_detail_desc);
+        productStockDetail = findViewById(R.id.productStock);
         addToCartBtn = findViewById(R.id.add_cart_button);
         
         getProductDetail(productID);
@@ -104,6 +106,7 @@ public class DetailProduct extends AppCompatActivity {
                     productNameDetail.setText(product.getProductName());
                     productPriceDetail.setText(product.getPrice());
                     productDescriptionDetail.setText(product.getDescription());
+                    productStockDetail.setText(product.getStock());
                     Picasso.get().load(product.getImage()).into(product_Image);
                 }
             }

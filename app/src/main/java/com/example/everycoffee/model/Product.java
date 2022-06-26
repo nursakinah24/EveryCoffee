@@ -1,13 +1,13 @@
 package com.example.everycoffee.model;
 
 public class Product {
-    private String date, time, productName, description, image, pid, price, stok ;
+    private String date, time, productName, description, image, pid, price, stock ;
 
     public Product(){
 
     }
 
-    public Product(String date, String description, String image, String pid, String price, String productName, String time) {
+    public Product(String date, String description, String image, String pid, String price, String productName, String time, String stock) {
         this.date = date;
         this.time = time;
         this.description = description;
@@ -15,6 +15,7 @@ public class Product {
         this.pid = pid;
         this.price = price;
         this.productName = productName;
+        this.stock = stock;
     }
 
     public String getDate() {
@@ -65,11 +66,13 @@ public class Product {
         this.price = price;
     }
 
-    public String getProductName() {
-        return productName;
-    }
+    public String getProductName() { return productName; }
 
     public void setProductName(String productName) {
         this.productName = productName;
     }
+
+    public String getStock() {return stock; }
+
+    public void setStock(String stock) { this.stock = stock; }
 }
