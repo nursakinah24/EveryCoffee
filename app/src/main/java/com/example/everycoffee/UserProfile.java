@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.everycoffee.model.Users;
+import com.example.everycoffee.prevalent.Prevalent;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -19,7 +20,6 @@ import com.google.firebase.database.ValueEventListener;
 
 public class UserProfile extends AppCompatActivity {
     private TextView txtName, txtUsername, txtPhone, txtEmail;
-    private String userID = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,13 +31,13 @@ public class UserProfile extends AppCompatActivity {
         txtPhone = findViewById(R.id.profilePhone);
         txtEmail = findViewById(R.id.profileEmail);
 
-        getUserData(userID);
+        getUserData();
 
     }
 
-    private void getUserData(String userID) {
-        DatabaseReference productsRef = FirebaseDatabase.getInstance().getReference().child("Users");
-        productsRef.child(userID).addValueEventListener(new ValueEventListener() {
+    private void getUserData() {
+        DatabaseReference productsRef = FirebaseDatabase.getInstance().getReference().child("Users").child("Members");
+        productsRef.child(Prevalent.CurrentOnlineUser.getM_username()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()){
