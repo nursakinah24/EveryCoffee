@@ -18,12 +18,18 @@ import android.widget.Toast;
 
 import com.example.everycoffee.model.CartModel;
 import com.example.everycoffee.ViewHolder.CartViewHolder;
+import com.example.everycoffee.model.Product;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
 
 public class Cart extends AppCompatActivity {
 
@@ -105,19 +111,48 @@ public class Cart extends AppCompatActivity {
                                 }
                                 // Jika indeks == 1 atau Remove maka hapus dengan pid tertentu
                                 if (i == 1) {
-                                    cartListRef
-                                            .child(model.getPid())
-                                            .removeValue()
-                                            .addOnCompleteListener(new OnCompleteListener<Void>() {;
+                                    final DatabaseReference dbproduct = FirebaseDatabase.getInstance().getReference().child("Product").child(model.getPid());
+                                    dbproduct.addListenerForSingleValueEvent(new ValueEventListener()
+                                    {
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot snapshot)
+                                        {
+                                            Product product = snapshot.getValue(Product.class);
+
+                                            String amountproduct = product.getStock();
+                                            String amountrcart = model.getQuantity();
+                                            int refresh = Integer.parseInt(amountproduct) + Integer.parseInt(amountrcart);
+                                            String finalamount = String.valueOf(refresh);
+
+                                            HashMap<String, Object> Map = new HashMap<>();
+                                            Map.put("stock", finalamount);
+
+                                            dbproduct.updateChildren(Map).addOnCompleteListener(new OnCompleteListener<Void>()
+                                            {
                                                 @Override
-                                                public void onComplete(@NonNull Task<Void> task) {
-                                                    if (task.isSuccessful()) {
-                                                        Toast.makeText(Cart.this, "Item removed successfully", Toast.LENGTH_SHORT).show();
-                                                        Intent intent = new Intent(Cart.this, Cart.class);
-                                                        startActivity(intent);
-                                                    }
+                                                public void onComplete(@NonNull Task<Void> task)
+                                                {
+                                                    cartListRef.child(model.getPid()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>()
+                                                    {
+                                                        @Override
+                                                        public void onComplete(@NonNull Task<Void> task)
+                                                        {
+                                                            if (task.isSuccessful())
+                                                            {
+                                                                Toast.makeText(Cart.this, "Item removed successfully", Toast.LENGTH_SHORT).show();
+                                                                Intent intent = new Intent(Cart.this, Cart.class);
+                                                                startActivity(intent);
+                                                            }
+                                                        }
+                                                    });
                                                 }
                                             });
+                                        }
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError error)
+                                        {
+                                        }
+                                    });
                                 }
 
                             }

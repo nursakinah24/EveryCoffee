@@ -34,7 +34,6 @@ public class OrderConfirmation extends AppCompatActivity {
         nameEdt = findViewById(R.id.shipment_name);
         phoneEdt = findViewById(R.id.shipment_phone_number);
         addressEdt = findViewById(R.id.shipment_address);
-        cityEdt = findViewById(R.id.shipment_city);
         totalPrice = getIntent().getStringExtra("Total Price");
         Toast.makeText(this, "Total Price = " + totalPrice + " rupiah", Toast.LENGTH_SHORT).show();
 
