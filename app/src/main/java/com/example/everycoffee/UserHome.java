@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.everycoffee.ViewHolder.ProductViewHolder;
@@ -27,6 +28,7 @@ import com.squareup.picasso.Picasso;
 
 public class UserHome extends AppCompatActivity {
     private ImageView Profile, Order, Search, Cart;
+    private Button logoutUser;
     private RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     private DatabaseReference ProductRef;
@@ -75,6 +77,16 @@ public class UserHome extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(UserHome.this, Cart.class);
                 startActivity(intent);
+            }
+        });
+
+        logoutUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(UserHome.this, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                finish();
             }
         });
     }
