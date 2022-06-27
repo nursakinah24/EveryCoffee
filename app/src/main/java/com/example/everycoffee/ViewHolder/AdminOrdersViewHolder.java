@@ -20,8 +20,8 @@ public class AdminOrdersViewHolder extends RecyclerView.ViewHolder implements Vi
         userName = itemView.findViewById(R.id.order_user_name);
         userPhoneNumber= itemView.findViewById(R.id.order_phone_number);
         userTotalAmount = itemView.findViewById(R.id.order_total_price);
-        userDateTime = itemView.findViewById(R.id.order_date_time);
-        userShippingAddress = itemView.findViewById(R.id.order_address_city);
+        userDateTime = itemView.findViewById(R.id.order_date);
+        userShippingAddress = itemView.findViewById(R.id.order_address);
     }
 
     @Override
