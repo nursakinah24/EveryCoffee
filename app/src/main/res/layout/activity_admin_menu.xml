@@ -9,16 +9,15 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_menu"
-        android:layout_width="387dp"
-        android:layout_height="734dp"
+        android:layout_width="346dp"
+        android:layout_height="725dp"
         android:background="@color/background"
+        android:foregroundGravity="center"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_button"
