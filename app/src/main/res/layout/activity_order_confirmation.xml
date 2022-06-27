@@ -49,16 +49,6 @@ tools:context=".OrderConfirmation">
     android:layout_marginRight="30dp"
     android:hint="Your Home address"
     />
-<EditText
-    android:id="@+id/shipment_city"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_below="@+id/shipment_address"
-    android:layout_marginTop="5dp"
-    android:layout_marginLeft="30dp"
-    android:layout_marginRight="30dp"
-    android:hint="Your city name"
-    />
 
     <Button
         android:id="@+id/confirm_final_order_btn"

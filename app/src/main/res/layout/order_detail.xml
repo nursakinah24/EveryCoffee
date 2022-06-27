@@ -29,8 +29,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/order_user_name"
-            android:layout_alignParentEnd="true"
+            android:layout_alignEnd="@+id/order_user_name"
             android:layout_marginTop="10dp"
+            android:layout_marginEnd="-212dp"
             android:gravity="center"
             android:text="name"
             android:textColor="@color/chocolate"
@@ -64,14 +65,14 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/order_address_city"
+            android:id="@+id/order_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/order_total_price"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:text="address, city"
+            android:text="address"
             android:textColor="@color/chocolate"
             android:textSize="14dp"
             android:textStyle="bold" />
@@ -80,7 +81,7 @@
             android:id="@+id/order_date_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/order_address_city"
+            android:layout_below="@id/order_address"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="10dp"
             android:gravity="center"
