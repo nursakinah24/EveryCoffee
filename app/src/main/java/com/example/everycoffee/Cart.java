@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.example.everycoffee.model.CartModel;
 import com.example.everycoffee.ViewHolder.CartViewHolder;
 import com.example.everycoffee.model.Product;
+import com.example.everycoffee.prevalent.Prevalent;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -55,7 +56,7 @@ public class Cart extends AppCompatActivity {
         nextProcessBtn = findViewById(R.id.next_process_btn);
         txtTotalAmount = findViewById(R.id.total_price);
 
-        cartListRef = FirebaseDatabase.getInstance().getReference().child("cart list").child("User View").child("phone").child("Product");
+        cartListRef = FirebaseDatabase.getInstance().getReference().child("cart list").child("User View").child(Prevalent.CurrentOnlineUser.getM_username()).child("Product");
 
         nextProcessBtn.setOnClickListener(new View.OnClickListener() {
             @Override
