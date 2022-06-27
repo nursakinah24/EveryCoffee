@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.everycoffee.model.Product;
+import com.example.everycoffee.prevalent.Prevalent;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -77,14 +78,14 @@ public class DetailProduct extends AppCompatActivity {
         int qty2 = Integer.parseInt(stock) -  Integer.parseInt(qty1);
         final String qty3 = String.valueOf(qty2);
 
-        cartListRef.child("User View").child("phone")
+        cartListRef.child("User View").child(Prevalent.CurrentOnlineUser.getM_username())
                 .child("Product").child(productID)
                 .updateChildren(cartMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
-                            cartListRef.child("Admin View").child("phone")
+                            cartListRef.child("Admin View").child(Prevalent.CurrentOnlineUser.getM_username())
                                     .child("Product").child(productID)
                                     .updateChildren(cartMap)
                                     .addOnCompleteListener(new OnCompleteListener<Void>() {

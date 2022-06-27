@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.everycoffee.model.Users;
+import com.example.everycoffee.prevalent.Prevalent;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -100,6 +101,7 @@ public class MainActivity extends AppCompatActivity
                         {
                             Toast.makeText(MainActivity.this, "Welcome Admin!", Toast.LENGTH_SHORT).show();
                             loadBar.dismiss();
+                            Prevalent.CurrentOnlineUser = UsersData;
                             Intent intent = new Intent(MainActivity.this, AdminHome.class);
                             startActivity(intent);
                         }
@@ -121,6 +123,7 @@ public class MainActivity extends AppCompatActivity
                             Toast.makeText(MainActivity.this, "Login Success...", Toast.LENGTH_SHORT).show();
 
                             loadBar.dismiss();
+                            Prevalent.CurrentOnlineUser = UsersData;
                             Intent intent = new Intent(MainActivity.this, UserHome.class);
                             startActivity(intent);
                         }

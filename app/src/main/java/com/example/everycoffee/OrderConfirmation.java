@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.everycoffee.prevalent.Prevalent;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
@@ -72,7 +73,7 @@ public class OrderConfirmation extends AppCompatActivity {
         saveCurrentTime = currentTime.format(calForDate.getTime());
 
         final DatabaseReference ordersRef = FirebaseDatabase.getInstance().getReference()
-                .child("ViewOrders").child("phone");
+                .child("ViewOrders").child(Prevalent.CurrentOnlineUser.getM_username());
 
         HashMap<String, Object> orderMap = new HashMap<>();
         orderMap.put("totalAmount",totalPrice);
