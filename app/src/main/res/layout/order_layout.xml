@@ -15,34 +15,21 @@
         android:padding="10dp">
 
         <TextView
-            android:id="@+id/order_user_name"
+            android:id="@+id/order_username"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:text="username"
             android:textColor="@color/light2"
             android:textSize="14sp"
-            android:textStyle="bold" /><![CDATA[
-
-
-
-
-        />
-
-
-
-
-
-
-
-        ]]>
+            android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/order_recyclerview"
             android:layout_width="362dp"
             android:layout_height="216dp"
-            android:layout_below="@+id/order_user_name"
-            android:layout_alignStart="@+id/order_user_name"
+            android:layout_below="@+id/order_username"
+            android:layout_alignStart="@+id/order_username"
             android:layout_marginStart="6dp"
             android:layout_marginTop="22dp"
             android:background="@color/lightchocolate"
