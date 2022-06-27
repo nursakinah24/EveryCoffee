@@ -46,6 +46,7 @@ public class UserHome extends AppCompatActivity {
         Order = findViewById(R.id.userOrder);
         Search = findViewById(R.id.userSearch);
         Cart = findViewById(R.id.userCart);
+        logoutUser = findViewById(R.id.user_logout_button);
 
 
         Profile.setOnClickListener(new View.OnClickListener() {
