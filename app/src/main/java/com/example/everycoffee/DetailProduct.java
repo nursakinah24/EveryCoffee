@@ -38,7 +38,7 @@ public class DetailProduct extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.content_detail_product);
+        setContentView(R.layout.activity_detail_product);
 
         productID = getIntent().getStringExtra("pid");
         Quantity = findViewById(R.id.elegantBtn);
