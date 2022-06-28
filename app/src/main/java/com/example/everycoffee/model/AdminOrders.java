@@ -1,11 +1,12 @@
 package com.example.everycoffee.model;
 
-public class AdminOrders { private String name, phone, address, city, state, date, time, totalAmount;
+public class AdminOrders { private String username, name, phone, address, city, state, date, time, totalAmount, oid;
 
     public AdminOrders() {
     }
 
-    public AdminOrders(String name, String phone, String address, String city, String state, String date, String time, String totalAmount) {
+    public AdminOrders(String username, String name, String phone, String address, String city, String state, String date, String time, String totalAmount, String oid) {
+        this.username = username;
         this.name = name;
         this.phone = phone;
         this.address = address;
@@ -14,6 +15,15 @@ public class AdminOrders { private String name, phone, address, city, state, dat
         this.date = date;
         this.time = time;
         this.totalAmount = totalAmount;
+        this.oid = oid;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getName() {
@@ -78,6 +88,14 @@ public class AdminOrders { private String name, phone, address, city, state, dat
 
     public void setTotalAmount(String totalAmount) {
         this.totalAmount = totalAmount;
+    }
+
+    public String getOid() {
+        return oid;
+    }
+
+    public void setOid(String oid) {
+        this.oid = oid;
     }
 }
 
