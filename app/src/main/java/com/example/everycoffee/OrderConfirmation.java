@@ -22,7 +22,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 
 public class OrderConfirmation extends AppCompatActivity {
-    private EditText nameEdt, phoneEdt, addressEdt, cityEdt;
+    private EditText nameEdt, phoneEdt, addressEdt;
     private Button confirmOrderBtn;
     private String totalPrice;
 
@@ -56,9 +56,6 @@ public class OrderConfirmation extends AppCompatActivity {
         else if(TextUtils.isEmpty(addressEdt.getText().toString())){
             Toast.makeText(this, "Please enter your Address!", Toast.LENGTH_SHORT).show();
         }
-        else if(TextUtils.isEmpty(cityEdt.getText().toString())){
-            Toast.makeText(this, "Please write your City Name!", Toast.LENGTH_SHORT).show();
-        }
         else {
             confirmOrder();
         }
@@ -72,30 +69,37 @@ public class OrderConfirmation extends AppCompatActivity {
         SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss a");
         saveCurrentTime = currentTime.format(calForDate.getTime());
 
-        final DatabaseReference ordersRef = FirebaseDatabase.getInstance().getReference()
-                .child("ViewOrders").child(Prevalent.CurrentOnlineUser.getM_username());
+        final DatabaseReference ordersRef = FirebaseDatabase.getInstance().getReference().child("ViewOrders").child("orders").child(Prevalent.CurrentOnlineUser.getM_username());
 
         HashMap<String, Object> orderMap = new HashMap<>();
         orderMap.put("totalAmount",totalPrice);
         orderMap.put("name", nameEdt.getText().toString());
         orderMap.put("phone", phoneEdt.getText().toString());
         orderMap.put("address", addressEdt.getText().toString());
-        orderMap.put("city", cityEdt.getText().toString());
         orderMap.put("date", saveCurrentDate);
         orderMap.put("time", saveCurrentTime);
         orderMap.put("state","not shipped");
-        ordersRef.updateChildren(orderMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+        orderMap.put("username", Prevalent.CurrentOnlineUser.getM_username());
+        ordersRef.updateChildren(orderMap).addOnCompleteListener(new OnCompleteListener<Void>()
+        {
             @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if(task.isSuccessful()){
-                    FirebaseDatabase.getInstance().getReference()
-                            .child("cart list")
-                            .child("User View")
-                            .removeValue()
-                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+            public void onComplete(@NonNull Task<Void> task)
+            {
+                if(task.isSuccessful())
+                {
+                    DatabaseReference ordersss = FirebaseDatabase.getInstance().getReference().child("ViewOrders").child("History").child(Prevalent.CurrentOnlineUser.getM_username());
+                    ordersss.updateChildren(orderMap).addOnCompleteListener(new OnCompleteListener<Void>()
+                    {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task)
+                        {
+                            FirebaseDatabase.getInstance().getReference().child("cart list").child("UserView").child(Prevalent.CurrentOnlineUser.getM_username()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>()
+                            {
                                 @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if(task.isSuccessful()){
+                                public void onComplete(@NonNull Task<Void> task)
+                                {
+                                    if(task.isSuccessful())
+                                    {
                                         Toast.makeText(OrderConfirmation.this, "Your Final Order has been Placed successfully", Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(OrderConfirmation.this, UserHome.class);
                                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -103,6 +107,8 @@ public class OrderConfirmation extends AppCompatActivity {
                                     }
                                 }
                             });
+                        }
+                    });
                 }
             }
         });

@@ -78,39 +78,39 @@ public class DetailProduct extends AppCompatActivity {
         int qty2 = Integer.parseInt(stock) -  Integer.parseInt(qty1);
         final String qty3 = String.valueOf(qty2);
 
-        cartListRef.child("User View").child(Prevalent.CurrentOnlineUser.getM_username())
-                .child("Product").child(productID)
-                .updateChildren(cartMap)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if(task.isSuccessful()){
-                            cartListRef.child("Admin View").child(Prevalent.CurrentOnlineUser.getM_username())
-                                    .child("Product").child(productID)
-                                    .updateChildren(cartMap)
-                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-                                            if(task.isSuccessful())
-                                            {
-                                                DatabaseReference Ref= FirebaseDatabase.getInstance().getReference().child("Product").child(productID);
-                                                HashMap<String, Object> Map = new HashMap<>();
-                                                Map.put("stock", qty3);
-                                                Ref.updateChildren(Map).addOnCompleteListener(new OnCompleteListener<Void>()
-                                                {
-                                                    @Override
-                                                    public void onComplete(@NonNull Task<Void> task) {
-                                                        Toast.makeText(DetailProduct.this, "Added to cart list", Toast.LENGTH_SHORT).show();
-                                                        Intent intent = new Intent(DetailProduct.this, UserHome.class);
-                                                        startActivity(intent);
-                                                    }
-                                                });
-                                            }
-                                        }
-                                    });
+        cartListRef.child("UserView").child(Prevalent.CurrentOnlineUser.getM_username()).child("Product").child(productID).updateChildren(cartMap).addOnCompleteListener(new OnCompleteListener<Void>()
+        {
+            @Override
+            public void onComplete(@NonNull Task<Void> task)
+            {
+                if(task.isSuccessful())
+                {
+                    cartListRef.child("AdminView").child(Prevalent.CurrentOnlineUser.getM_username()).child("Product").child(productID).updateChildren(cartMap).addOnCompleteListener(new OnCompleteListener<Void>()
+                    {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task)
+                        {
+                            if(task.isSuccessful())
+                            {
+                                DatabaseReference Ref= FirebaseDatabase.getInstance().getReference().child("Product").child(productID);
+                                HashMap<String, Object> Map = new HashMap<>();
+                                Map.put("stock", qty3);
+                                Ref.updateChildren(Map).addOnCompleteListener(new OnCompleteListener<Void>()
+                                {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task)
+                                    {
+                                        Toast.makeText(DetailProduct.this, "Added to cart list", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(DetailProduct.this, UserHome.class);
+                                        startActivity(intent);
+                                    }
+                                });
+                            }
                         }
-                    }
-                });
+                    });
+                }
+            }
+        });
     }
 
     private void getProductDetail(String productID) {

@@ -25,6 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -72,6 +73,20 @@ public class AdminManageProduct extends AppCompatActivity {
                 validateProduct();
             }
         });
+
+
+
+        Intent intent = getIntent();
+        if (intent!=null)
+        {
+            imageUri = Uri.parse(intent.getStringExtra("image"));
+            Picasso.get().load(intent.getStringExtra("image")).into(selectImage);
+            edName.setText(intent.getStringExtra("productName"));
+            edDesc.setText(intent.getStringExtra("description"));
+            edPrice.setText(intent.getStringExtra("price"));
+            edStock.setText(intent.getStringExtra("stock"));
+
+        }
     }
 
     private void openGallery() {
@@ -118,43 +133,54 @@ public class AdminManageProduct extends AppCompatActivity {
         SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss a");
         saveTime = currentTime.format(calendar.getTime());
 
-        productRandomKey = saveDate + saveTime;
+        Intent intent = getIntent();
+        if (intent.getStringExtra("image")==null)
+        {
 
-        final StorageReference filePath = storageRef.child(imageUri.getLastPathSegment() + productRandomKey + ".jpg");
-        final UploadTask UploadTask = filePath.putFile(imageUri);
-        UploadTask.addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                String message = e.toString();
-                Toast.makeText(AdminManageProduct.this, "ERROR:" + message, Toast.LENGTH_SHORT).show();
-                loadingBar.dismiss();
-            }
-        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onSuccess(com.google.firebase.storage.UploadTask.TaskSnapshot taskSnapshot) {
-                Toast.makeText(AdminManageProduct.this, "Image Uploaded Succesfully", Toast.LENGTH_SHORT).show();
-                Task<Uri> urlTask = UploadTask.continueWithTask(new Continuation<com.google.firebase.storage.UploadTask.TaskSnapshot, Task<Uri>>() {
-                    @Override
-                    public Task<Uri> then(@NonNull Task<com.google.firebase.storage.UploadTask.TaskSnapshot> task) throws Exception {
-                        if(!task.isSuccessful()){
-                            throw task.getException();
-                        }else{
-                            downloadImageUrl =filePath.getDownloadUrl().toString();
-                            return filePath.getDownloadUrl();
+            productRandomKey = saveDate + saveTime;
+
+            final StorageReference filePath = storageRef.child(imageUri.getLastPathSegment() + productRandomKey + ".jpg");
+            final UploadTask UploadTask = filePath.putFile(imageUri);
+            UploadTask.addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    String message = e.toString();
+                    Toast.makeText(AdminManageProduct.this, "ERROR:" + message, Toast.LENGTH_SHORT).show();
+                    loadingBar.dismiss();
+                }
+            }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(com.google.firebase.storage.UploadTask.TaskSnapshot taskSnapshot) {
+                    Toast.makeText(AdminManageProduct.this, "Image Uploaded Succesfully", Toast.LENGTH_SHORT).show();
+                    Task<Uri> urlTask = UploadTask.continueWithTask(new Continuation<com.google.firebase.storage.UploadTask.TaskSnapshot, Task<Uri>>() {
+                        @Override
+                        public Task<Uri> then(@NonNull Task<com.google.firebase.storage.UploadTask.TaskSnapshot> task) throws Exception {
+                            if(!task.isSuccessful()){
+                                throw task.getException();
+                            }else{
+                                downloadImageUrl =filePath.getDownloadUrl().toString();
+                                return filePath.getDownloadUrl();
+                            }
                         }
-                    }
-                }).addOnCompleteListener(new OnCompleteListener<Uri>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Uri> task) {
-                        if(task.isSuccessful()){
-                            downloadImageUrl = task.getResult().toString();
-                            Toast.makeText(AdminManageProduct.this, "got the product Image url succcesfully...", Toast.LENGTH_SHORT).show();
-                            saveProduct();
+                    }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Uri> task) {
+                            if(task.isSuccessful()){
+                                downloadImageUrl = task.getResult().toString();
+                                Toast.makeText(AdminManageProduct.this, "got the product Image url succcesfully...", Toast.LENGTH_SHORT).show();
+                                saveProduct();
+                            }
                         }
-                    }
-                });
-            }
-        });
+                    });
+                }
+            });
+        }
+        else
+        {
+            productRandomKey = intent.getStringExtra("pid");
+            downloadImageUrl = intent.getStringExtra("image");
+            saveProduct();
+        }
     }
 
     private void saveProduct() {

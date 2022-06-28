@@ -56,7 +56,7 @@ public class Cart extends AppCompatActivity {
         nextProcessBtn = findViewById(R.id.next_process_btn);
         txtTotalAmount = findViewById(R.id.total_price);
 
-        cartListRef = FirebaseDatabase.getInstance().getReference().child("cart list").child("User View").child(Prevalent.CurrentOnlineUser.getM_username()).child("Product");
+        cartListRef = FirebaseDatabase.getInstance().getReference().child("cart list").child("UserView").child(Prevalent.CurrentOnlineUser.getM_username()).child("Product");
 
         nextProcessBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,7 +96,7 @@ public class Cart extends AppCompatActivity {
                     public void onClick(View v) {
                         CharSequence options[] = new CharSequence[]
                                 {
-                                        "Edit", "Remove"
+                                      "Remove"
                                 };
                         AlertDialog.Builder builder = new AlertDialog.Builder(Cart.this);
                         builder.setTitle("Cart Options");
@@ -104,14 +104,9 @@ public class Cart extends AppCompatActivity {
                         builder.setItems(options, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int i) {
-                                //Jika indeks == 0 atau edit maka kita lempar ke Product detail activity dengan pid tertentu
-                                if (i == 0) {
-                                    Intent intent = new Intent(Cart.this, DetailProduct.class);
-                                    intent.putExtra("pid", model.getPid());
-                                    startActivity(intent);
-                                }
+
                                 // Jika indeks == 1 atau Remove maka hapus dengan pid tertentu
-                                if (i == 1) {
+                                if (i == 0) {
                                     final DatabaseReference dbproduct = FirebaseDatabase.getInstance().getReference().child("Product").child(model.getPid());
                                     dbproduct.addListenerForSingleValueEvent(new ValueEventListener()
                                     {
