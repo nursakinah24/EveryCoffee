@@ -61,7 +61,7 @@
                     android:text="Rp."
                     android:textAlignment="textEnd"
                     android:textColor="@color/chocolate"
-                    android:textSize="24sp" />
+                    android:textSize="22sp" />
 
                 <TextView
                     android:id="@+id/product_detail_price"
@@ -69,7 +69,7 @@
                     android:layout_height="wrap_content"
                     android:text="Price"
                     android:textColor="@color/chocolate"
-                    android:textSize="24sp" />
+                    android:textSize="22sp" />
             </LinearLayout>
 
         </LinearLayout>
@@ -132,16 +132,15 @@
 
     <Button
         android:id="@+id/add_cart_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="146dp"
+        android:layout_height="64dp"
         android:backgroundTint="@color/chocolate"
         android:text="ADD TO CART"
         android:textColor="@color/background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/elegantBtn"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/elegantBtn" />
 
     <![CDATA[
 
