@@ -17,8 +17,11 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.everycoffee.ViewHolder.AdminOrdersViewHolder;
+import com.example.everycoffee.ViewHolder.CartViewHolder;
 import com.example.everycoffee.model.AdminOrders;
+import com.example.everycoffee.model.CartModel;
 import com.example.everycoffee.model.Users;
+import com.example.everycoffee.prevalent.Prevalent;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
@@ -26,15 +29,14 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class AdminCheckOrder extends AppCompatActivity {
     private RecyclerView orderList;
-    private DatabaseReference orderRef;
-    private String UserID = "";
+    private DatabaseReference ordersRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_check_order);
 
-        orderRef = FirebaseDatabase.getInstance().getReference().child("ViewOrders");
+        ordersRef = FirebaseDatabase.getInstance().getReference().child("ViewOrders");
 
         orderList = findViewById(R.id.order_list);
         orderList.setLayoutManager(new LinearLayoutManager(this));
@@ -43,20 +45,24 @@ public class AdminCheckOrder extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        FirebaseRecyclerOptions<Users> options =
-                new FirebaseRecyclerOptions.Builder<Users>()
-                        .setQuery(orderRef, Users.class)
+        FirebaseRecyclerOptions<AdminOrders> options =
+                new FirebaseRecyclerOptions.Builder<AdminOrders>()
+                        .setQuery(ordersRef, AdminOrders.class)
                         .build();
-        FirebaseRecyclerAdapter<Users, UsersViewHolder> adapter =
-                new FirebaseRecyclerAdapter<Users, UsersViewHolder>(options) {
+        FirebaseRecyclerAdapter<AdminOrders,AdminOrdersViewholder> adapter =
+                new FirebaseRecyclerAdapter<AdminOrders, AdminOrdersViewholder>(options) {
                     @Override
-                    protected void onBindViewHolder(@NonNull UsersViewHolder holder, @SuppressLint("RecyclerView") final int position, @NonNull final Users model) {
-                        holder.userName.setText("Name = " + model.getM_username());
-                        holder.showDetailBtn.setOnClickListener(new View.OnClickListener() {
+                    protected void onBindViewHolder(@NonNull AdminOrdersViewholder holder, @SuppressLint("RecyclerView") final int position, @NonNull final AdminOrders model) {
+                        holder.userName.setText("Name = " + model.getName());
+                        holder.userPhoneNumber.setText("Phone = " + model.getPhone());
+                        holder.userTotalAmount.setText("Total Amount= " + model.getTotalAmount());
+                        holder.userDateTime.setText("Order at = " + model.getDate() + " " + model.getTime());
+                        holder.userShippingAddress.setText("Shipping address = " + model.getAddress() + " " + model.getCity());
+                        holder.showOrdersBtn.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
                                 String uID = getRef(position).getKey();
-                                Intent intent = new Intent(AdminCheckOrder.this, DetailOrder.class);
+                                Intent intent = new Intent(AdminCheckOrder.this, AdminCheckProduct.class);
                                 intent.putExtra("uid", uID);
                                 startActivity(intent);
                             }
@@ -88,27 +94,31 @@ public class AdminCheckOrder extends AppCompatActivity {
 
                     @NonNull
                     @Override
-                    public UsersViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.order_layout,parent,false);
-                        UsersViewHolder holder = new UsersViewHolder(view);
-                        return holder;
+                    public AdminOrdersViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.order_detail,parent,false);
+                        return new AdminOrdersViewholder(view);
                     }
                 };
         orderList.setAdapter(adapter);
         adapter.startListening();
+
     }
 
-    public static class UsersViewHolder extends RecyclerView.ViewHolder {
-        public TextView userName;
-        public Button showDetailBtn;
-        public UsersViewHolder(View itemView) {
+    public static class AdminOrdersViewholder extends RecyclerView.ViewHolder{
+        public TextView userName, userPhoneNumber,userTotalAmount, userDateTime, userShippingAddress;
+        public Button showOrdersBtn;
+        public AdminOrdersViewholder(View itemView) {
             super(itemView);
-            userName = itemView.findViewById(R.id.order_username);
-            showDetailBtn = itemView.findViewById(R.id.show_detail_order);
+            userName = itemView.findViewById(R.id.order_user_name);
+            userPhoneNumber= itemView.findViewById(R.id.order_phone_number);
+            userTotalAmount = itemView.findViewById(R.id.order_total_price);
+            userDateTime = itemView.findViewById(R.id.order_date);
+            userShippingAddress = itemView.findViewById(R.id.order_address);
+            showOrdersBtn = itemView.findViewById(R.id.show_detail_order);
 
         }
     }
     private void removeOrder(String uID) {
-        orderRef.removeValue();
+        ordersRef.child(uID).removeValue();
     }
 }
