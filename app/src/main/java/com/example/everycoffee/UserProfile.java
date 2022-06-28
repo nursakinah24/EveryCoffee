@@ -20,6 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class UserProfile extends AppCompatActivity {
     private TextView txtName, txtUsername, txtPhone, txtEmail;
+    private Button logoutUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,17 @@ public class UserProfile extends AppCompatActivity {
         txtUsername = findViewById(R.id.profileUsername);
         txtPhone = findViewById(R.id.profilePhone);
         txtEmail = findViewById(R.id.profileEmail);
+        logoutUser = findViewById(R.id.user_logout_button);
+
+        logoutUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(UserProfile.this, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         getUserData();
 

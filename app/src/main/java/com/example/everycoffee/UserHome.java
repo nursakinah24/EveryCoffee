@@ -27,8 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 public class UserHome extends AppCompatActivity {
-    private ImageView Profile, Order, Search, Cart;
-    private Button logoutUser;
+    private ImageView Profile, Search, Cart;
     private RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     private DatabaseReference ProductRef;
@@ -43,24 +42,13 @@ public class UserHome extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         Profile = findViewById(R.id.userProfile);
-        Order = findViewById(R.id.userOrder);
         Search = findViewById(R.id.userSearch);
         Cart = findViewById(R.id.userCart);
-        logoutUser = findViewById(R.id.user_logout_button);
-
 
         Profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(UserHome.this, UserProfile.class);
-                startActivity(intent);
-            }
-        });
-
-        Order.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(UserHome.this, UserOrderHistory.class);
                 startActivity(intent);
             }
         });
@@ -81,15 +69,7 @@ public class UserHome extends AppCompatActivity {
             }
         });
 
-        logoutUser.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(UserHome.this, MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
-                finish();
-            }
-        });
+
     }
 
     @Override

@@ -145,10 +145,12 @@
         android:text="Phone Number"
         android:textColor="@color/chocolate"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textView6"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/imageView8"
@@ -161,5 +163,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.125"
         app:srcCompat="@drawable/userprofile" />
+
+    <Button
+        android:id="@+id/user_logout_button"
+        android:layout_width="275dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="80dp"
+        android:text="LOGOUT"
+        android:textColor="@color/background"
+        app:backgroundTint="@color/chocolate"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileEmail"
+        app:layout_constraintVertical_bias="1.0" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
