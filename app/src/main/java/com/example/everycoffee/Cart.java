@@ -56,7 +56,7 @@ public class Cart extends AppCompatActivity {
         nextProcessBtn = findViewById(R.id.next_process_btn);
         txtTotalAmount = findViewById(R.id.total_price);
 
-        cartListRef = FirebaseDatabase.getInstance().getReference().child("cart list").child("User View").child(Prevalent.CurrentOnlineUser.getM_username()).child("Product");
+        cartListRef = FirebaseDatabase.getInstance().getReference().child("cart list").child("UserView").child(Prevalent.CurrentOnlineUser.getM_username()).child("Product");
 
         nextProcessBtn.setOnClickListener(new View.OnClickListener() {
             @Override

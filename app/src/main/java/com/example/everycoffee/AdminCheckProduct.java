@@ -37,7 +37,7 @@ public class AdminCheckProduct extends AppCompatActivity {
         productList.setLayoutManager(layoutManager);
 
         cartListRef= FirebaseDatabase.getInstance().getReference()
-                .child("cart list")
+                .child("cart list").child("AdminView")
                 .child(UserID).child("Product");
     }
 

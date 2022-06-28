@@ -29,14 +29,15 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class AdminCheckOrder extends AppCompatActivity {
     private RecyclerView orderList;
-    private DatabaseReference ordersRef;
+    private DatabaseReference ordersRef, cartRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_check_order);
 
-        ordersRef = FirebaseDatabase.getInstance().getReference().child("ViewOrders");
+        ordersRef = FirebaseDatabase.getInstance().getReference().child("ViewOrders").child("orders");
+        cartRef = FirebaseDatabase.getInstance().getReference().child("cart list").child("AdminView");
 
         orderList = findViewById(R.id.order_list);
         orderList.setLayoutManager(new LinearLayoutManager(this));
@@ -80,8 +81,8 @@ public class AdminCheckOrder extends AppCompatActivity {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
                                         if(i == 0){
-                                            String uID = getRef(position).getKey();
-                                            removeOrder(uID);
+//                                            String uID = getRef(position).getKey();
+                                            removeOrder(model.getUsername());
                                         }   else{
                                             finish();
                                         }
@@ -120,5 +121,7 @@ public class AdminCheckOrder extends AppCompatActivity {
     }
     private void removeOrder(String uID) {
         ordersRef.child(uID).removeValue();
+        cartRef.child(uID).removeValue();
+
     }
 }
