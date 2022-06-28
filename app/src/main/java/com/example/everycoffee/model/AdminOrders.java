@@ -1,11 +1,14 @@
 package com.example.everycoffee.model;
 
-public class AdminOrders { private String username, name, phone, address, city, state, date, time, totalAmount, oid;
+import java.util.List;
 
-    public AdminOrders() {
-    }
+public class AdminOrders {
+    private String username, name, phone, address, city, state, date, time, totalAmount, oid;
+    private List<CartModel> childItemList;
 
-    public AdminOrders(String username, String name, String phone, String address, String city, String state, String date, String time, String totalAmount, String oid) {
+    public AdminOrders() { }
+
+    public AdminOrders(String username, String name, String phone, String address, String city, String state, String date, String time, String totalAmount, String oid, List<CartModel> childItemList) {
         this.username = username;
         this.name = name;
         this.phone = phone;
@@ -16,6 +19,7 @@ public class AdminOrders { private String username, name, phone, address, city, 
         this.time = time;
         this.totalAmount = totalAmount;
         this.oid = oid;
+        this.childItemList = childItemList;
     }
 
     public String getUsername() {
@@ -96,6 +100,14 @@ public class AdminOrders { private String username, name, phone, address, city, 
 
     public void setOid(String oid) {
         this.oid = oid;
+    }
+
+    public List<CartModel> getChildItemList() {
+        return childItemList;
+    }
+
+    public void setChildItemList(List<CartModel> childItemList) {
+        this.childItemList = childItemList;
     }
 }
 
