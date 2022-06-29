@@ -61,10 +61,6 @@
             android:exported="false"
             android:parentActivityName=".UserHome" />
         <activity
-            android:name=".DetailOrder"
-            android:exported="false"
-            android:parentActivityName=".AdminCheckOrder" />
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

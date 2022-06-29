@@ -26,8 +26,8 @@
 
         <EditText
             android:id="@+id/searchProduct"
-            android:layout_width="321dp"
-            android:layout_height="59dp"
+            android:layout_width="304dp"
+            android:layout_height="54dp"
             android:layout_centerVertical="true"
             android:layout_marginStart="8dp"
             android:layout_marginTop="10dp"

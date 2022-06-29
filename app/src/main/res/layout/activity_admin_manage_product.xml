@@ -140,9 +140,13 @@
 
     <ImageView
         android:id="@+id/select_image"
-        android:layout_width="322dp"
-        android:layout_height="231dp"
+        android:layout_width="330dp"
+        android:layout_height="250dp"
         android:background="@drawable/box"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textView13"
         app:layout_constraintHorizontal_bias="0.5"
