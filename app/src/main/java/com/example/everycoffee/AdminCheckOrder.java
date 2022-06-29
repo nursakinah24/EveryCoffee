@@ -36,7 +36,7 @@ public class AdminCheckOrder extends AppCompatActivity {
         uID = getIntent().getStringExtra("uid");
 
         ordersRef = FirebaseDatabase.getInstance().getReference().child("ViewOrders").child("orders");
-        cartRef = FirebaseDatabase.getInstance().getReference().child("cart list").child("AdminView").child("kina").child("Product");
+        cartRef = FirebaseDatabase.getInstance().getReference().child("cart list").child("AdminView");
 
 
         orderList = findViewById(R.id.order_list);
@@ -56,7 +56,7 @@ public class AdminCheckOrder extends AppCompatActivity {
                         holder.recyclerView.setHasFixedSize(true);
                         holder.recyclerView.setLayoutManager(new LinearLayoutManager(holder.itemView.getContext()));
 
-                        FirebaseRecyclerOptions<CartModel> childOptions = new FirebaseRecyclerOptions.Builder<CartModel>().setQuery(cartRef, CartModel.class).build();
+                        FirebaseRecyclerOptions<CartModel> childOptions = new FirebaseRecyclerOptions.Builder<CartModel>().setQuery(cartRef.child(model.getUsername()).child("Product"), CartModel.class).build();
 
                         FirebaseRecyclerAdapter<CartModel, CartViewHolder> childAdapter = new FirebaseRecyclerAdapter<CartModel, CartViewHolder>(childOptions){
 
