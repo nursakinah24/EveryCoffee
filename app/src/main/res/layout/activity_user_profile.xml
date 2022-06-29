@@ -176,9 +176,9 @@
         android:textColor="@color/background"
         app:backgroundTint="@color/chocolate"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/profileEmail"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/profileEmail"
         app:layout_constraintTop_toBottomOf="@+id/profileEmail"
         app:layout_constraintVertical_bias="0.0" />
 
