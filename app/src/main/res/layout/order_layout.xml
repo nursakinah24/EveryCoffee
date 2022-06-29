@@ -2,8 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/order_layout"
     android:background="@color/background"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -31,8 +31,8 @@
             android:layout_height="216dp"
             android:layout_below="@+id/order_username"
             android:layout_alignStart="@+id/order_username"
-            android:layout_marginStart="6dp"
-            android:layout_marginTop="22dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="50dp"
             android:background="@color/lightchocolate"
             android:scrollbars="vertical"></androidx.recyclerview.widget.RecyclerView>
 
@@ -44,12 +44,12 @@
             android:layout_alignEnd="@+id/order_recyclerview"
             android:layout_alignBottom="@+id/order_recyclerview"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="25dp"
+            android:layout_marginStart="30dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="26dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="30dp"
             android:layout_marginRight="20dp"
-            android:layout_marginBottom="-74dp"
+            android:layout_marginBottom="-54dp"
             android:backgroundTint="@color/chocolate"
             android:text="SHOW DETAIL"
             android:textColor="@color/light2"

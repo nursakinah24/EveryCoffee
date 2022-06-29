@@ -53,9 +53,9 @@ public class AdminOrderDetail extends AppCompatActivity {
                     txtUsername.setText(orders.getUsername());
                     txtName.setText("Name : " + orders.getName());
                     txtPhone.setText("Phone Number : " + orders.getPhone());
-                    txtTotalPrice.setText("Total Price : " + orders.getTotalAmount());
+                    txtTotalPrice.setText("Total Price : Rp." + orders.getTotalAmount());
                     txtAddress.setText("Home Address : " + orders.getAddress());
-                    txtDateTime.setText("Date : " + orders.getDate() + "Time : " + orders.getTime());
+                    txtDateTime.setText("Date Time : " + orders.getDate() + " " + orders.getTime());
                 }
             }
 

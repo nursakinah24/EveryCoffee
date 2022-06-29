@@ -12,7 +12,8 @@
         tools:replace="android:icon">
         <activity
             android:name=".AdminOrderDetail"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".AdminCheckOrder"/>
         <activity
             android:name=".UserOrderHistory"
             android:exported="false"
