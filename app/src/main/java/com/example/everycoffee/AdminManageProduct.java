@@ -76,16 +76,14 @@ public class AdminManageProduct extends AppCompatActivity {
 
 
 
-        Intent intent = getIntent();
-        if (intent!=null)
+        Intent intentupdate = getIntent();
+        if (intentupdate!=null)
         {
-            imageUri = Uri.parse(intent.getStringExtra("image"));
-            Picasso.get().load(intent.getStringExtra("image")).into(selectImage);
-            edName.setText(intent.getStringExtra("productName"));
-            edDesc.setText(intent.getStringExtra("description"));
-            edPrice.setText(intent.getStringExtra("price"));
-            edStock.setText(intent.getStringExtra("stock"));
-
+            Picasso.get().load(intentupdate.getStringExtra("image")).into(selectImage);
+            edName.setText(intentupdate.getStringExtra("productName"));
+            edDesc.setText(intentupdate.getStringExtra("description"));
+            edPrice.setText(intentupdate.getStringExtra("price"));
+            edStock.setText(intentupdate.getStringExtra("stock"));
         }
     }
 
@@ -133,8 +131,8 @@ public class AdminManageProduct extends AppCompatActivity {
         SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss a");
         saveTime = currentTime.format(calendar.getTime());
 
-        Intent intent = getIntent();
-        if (intent.getStringExtra("image")==null)
+        Intent intentupdate = getIntent();
+        if (intentupdate==null)
         {
 
             productRandomKey = saveDate + saveTime;
@@ -177,8 +175,8 @@ public class AdminManageProduct extends AppCompatActivity {
         }
         else
         {
-            productRandomKey = intent.getStringExtra("pid");
-            downloadImageUrl = intent.getStringExtra("image");
+            productRandomKey = intentupdate.getStringExtra("pid");
+            downloadImageUrl = intentupdate.getStringExtra("image");
             saveProduct();
         }
     }
