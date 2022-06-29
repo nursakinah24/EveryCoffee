@@ -3,17 +3,16 @@ package com.example.everycoffee.model;
 import java.util.List;
 
 public class AdminOrders {
-    private String username, name, phone, address, city, state, date, time, totalAmount, oid;
+    private String username, name, phone, address, state, date, time, totalAmount, oid;
 
 
     public AdminOrders() { }
 
-    public AdminOrders(String username, String name, String phone, String address, String city, String state, String date, String time, String totalAmount, String oid) {
+    public AdminOrders(String username, String name, String phone, String address, String state, String date, String time, String totalAmount, String oid) {
         this.username = username;
         this.name = name;
         this.phone = phone;
         this.address = address;
-        this.city = city;
         this.date = date;
         this.time = time;
         this.totalAmount = totalAmount;
@@ -50,14 +49,6 @@ public class AdminOrders {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
     }
 
     public String getState() {

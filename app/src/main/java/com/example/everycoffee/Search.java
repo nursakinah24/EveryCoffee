@@ -59,7 +59,7 @@ public class Search extends AppCompatActivity {
                     @Override
                     protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull final Product model) {
                         holder.txtProductName.setText(model.getProductName());
-                        holder.txtproductPrice.setText("Price : Rp. " + model.getPrice() + " rupiah");
+                        holder.txtproductPrice.setText("Price : Rp. " + model.getPrice());
                         Picasso.get().load(model.getImage()).into(holder.imageView);
                         holder.itemView.setOnClickListener(new View.OnClickListener() {
                             @Override
