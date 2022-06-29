@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         tools:replace="android:icon">
         <activity
-            android:name=".AdminCheckProduct"
+            android:name=".AdminOrderDetail"
             android:exported="false" />
         <activity
             android:name=".UserOrderHistory"
