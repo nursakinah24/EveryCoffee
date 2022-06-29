@@ -79,7 +79,7 @@ tools:context=".OrderConfirmation">
     <Button
         android:id="@+id/confirm_final_order_btn"
         android:layout_width="wrap_content"
-        android:layout_height="49dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/shipment_address"
         android:layout_alignStart="@+id/shipment_address"
         android:layout_alignEnd="@+id/shipment_address"
