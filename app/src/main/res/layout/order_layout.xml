@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:text="username"
-            android:textColor="@color/light2"
+            android:textColor="@color/chocolate"
             android:textSize="14sp"
             android:textStyle="bold" />
 
